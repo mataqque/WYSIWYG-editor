@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="tablero">
+        <div class="header">
+            <div>
+            <div>titles</div>
+            <div>negrita</div>
+            <div>subrayado</div>
+            <div>t.letras</div>
+            <div>Col,font</div>
+            <div>Col,font</div>
+            <div>link</div>
+            <div>picture</div>
+            <div>video</div>
+            <div>expant</div>
+            <div>expant</div>
+            <div>code</div>
+        </div>
+        </div>
+        <div class="contenido_html" contenteditable="true" >
+            <p>﻿<br></p>
+        </div>
+    </div>
+    <script>
+    var contenedor = document.getElementsByClassName("contenido_html");
+    var palabra = "";
+    var cont = 0;
+    var valor = true;
+    document.getElementsByClassName("contenido_html")[0].addEventListener("keydown",function(event){
+        console.log(contenedor[0].innerHTML)
+        let cantidad = contenedor[0].innerHTML.indexOf("<p>");
+        let etiquetap = contenedor[0].innerHTML.substr(cantidad,3);
+        console.log(etiquetap)
+        if(etiquetap !== "<p>"){
+            let elemento = document.createElement("p");
+            elemento.textContent = "﻿";
+            document.getElementsByClassName("contenido_html")[0].appendChild(elemento)
+        }
+    });
+
+    class elemento{
+        constructor(palabra){
+            this._letra = palabra;
+        }
+        CreateParrafo(){
+            let elemento = document.createElement("p");
+            elemento.textContent = this._letra;
+            document.getElementsByClassName("contenido_html")[0].appendChild(elemento)
+        }
+    }
+    </script>
+</body>
+</html>
